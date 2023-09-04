@@ -7,6 +7,8 @@ const dirScript = dir + '/public/'
 
 const config = require('./config.json')
 
+const students = require("./students.json")
+
 let port = config.port
 
 let app = express();
@@ -23,6 +25,13 @@ app.route('/')
     .get((req,res)=>{
         res.status(200);
         res.sendFile(dirPub + 'index.html')
+        res.end
+    })
+
+app.route("/students")
+    .get((req, res)=>{
+        res.status(200)
+        res.send(JSON.stringify(students))
         res.end
     })
 
