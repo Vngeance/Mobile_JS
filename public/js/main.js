@@ -33,6 +33,14 @@ document.addEventListener("DOMContentLoaded", ()=>{
         update().then(data=>{
             console.table(data)
             renderStudents(data)
+            let students = document.querySelectorAll("[group]")
+            console.log(students)
+            for (let i in students){
+                students[i].addEventListener('click', e => {
+                    console.log(e.target.attributes.group.value)
+                    alert(`${e.target.innerText} ${e.target.attributes.group.value}`)
+                })
+            }
         })
     })
 })
